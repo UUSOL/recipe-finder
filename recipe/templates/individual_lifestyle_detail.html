@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+	{% load static %}
+	<link href="{% static './css/individual-lifestyle-detail.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <section class="title">
+		<h2 class="welcome">Recipe-Constructor WebApp</h2>
+		<p>Read about the lifestyle and choose an action below.</p>
+	    <h2>Click on the button to continue!</h2>
+	</section>
+{% endblock %}
+
+{% block main %}
+	<section class="choice">
+			<div class="lifestyle">
+            	<img src="{{ art.image.url }}" />
+                <span>{{ art.name }}</span>
+            </div>
+            <div class="info">
+                <p>{{ art.description }}</p>
+                <p><strong>For more information please visit Wikipedia article on </strong> <a href="{{art.description_src}}">{{art.description_src}}</a></p>
+            </div>
+</section>
+
+{% endblock %}
+
+{% block buttons %}
+    <section class="button">
+		<form class="list" method="POST" action="" id="empty_post">
+			{% csrf_token %}
+		</form>
+		<button class="submit" form="empty_post" type="submit">Reset Ingredients</button>
+		<a href="/recipe/include-{{art.name}}-ingredients">Include ingredients</a>
+		<a href="/recipe/exclude-{{art.name}}-ingredients">Exclude ingredients</a>
+		<a href="/recipe/{{art.name}}-recipes">Start searching</a>
+	</section>
+{% endblock %}

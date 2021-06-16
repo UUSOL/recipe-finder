@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+    {% load static %}
+	<link href="{% static './css/exclude-ingredients.css' %}" rel="stylesheet">
+    <script src="{% static './js/exclude-ingredients.js' %}" async></script>
+{% endblock %}
+
+{% block title %}
+	<section class="title">
+		<h2 class="welcome">Recipe-Constructor WebApp</h2>
+		<p> Click on ingredient to exclude from the recipe. Click again to reverse your choice.</p>
+		<h2>Click on picture for adding to the search!</h2>
+    </section>
+{% endblock %}
+
+{% block main %}
+    <section class="choice">
+        <h3 class="choice-title">Ingredients to exclude:</h3>
+
+        <form class="list" method="POST" action="" id="choices">
+            {% for ingredient in ingredients %}
+                <label class="exclude {% if ingredient.name in excluded %}focused{% endif %}" for="{{ingredient.name}}">
+                    <img src="{{ingredient.image.url}}" />
+                    <span>{{ingredient.name}}</span>
+                    <input class="checkbox" type="checkbox" id="{{ingredient.name}}" name="{{ ingredient.name }}" value="{{ ingredient.name }}">
+                </label>
+            {% endfor %}
+        </form>
+    </section>
+{% endblock %}
+
+{% block buttons %}
+  <section class="button">
+    <a href="/recipe/{{art}}-lifestyle">Back</a>
+    <button class="submit" type="submit" form="choices" value="Submit">Save</button>
+  </section>
+{% endblock %}

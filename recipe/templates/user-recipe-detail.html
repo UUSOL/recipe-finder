@@ -1,0 +1,59 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+	{% load static %}
+	<link href="{% static './css/recipe-detail.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+	<section class="title">
+		<h2 class="welcome">Recipe-Constructor WebApp</h2>
+		<p> Click on ingredient to include to the recipe. Click again to reverse your choice</p>
+		<h2>Click on picture for adding to the search!</h2>
+	</section>
+{% endblock %}
+
+{% block main %}
+		<h3 class="choice-title">Your cooking recipe</h3>
+        <div class="recipe-header">
+			<img src="{{recipe.image.url}}" />
+			<div class="recipe-info">
+				<h2>{{recipe.name}}</h2>
+				<h3> Description</h3>
+				<p>{{recipe.description}}</p>
+				<p>For more information please visit: <a href="{{recipe.recipe_src}}">{{recipe.recipe_src}}</a></p>
+			</div>
+		</div>
+
+        <div class="recipe-content">
+			<div class="instructions">
+				<h3>Instructions:</h3>
+                <ol>
+                {% for sentence in recipe.instructions_as_list %}
+					<li>{{ sentence }}</li>
+                {% endfor %}
+                </ol>
+            </div>
+
+			<div class="ingredients">
+				<h3>Ingredients:</h3>
+			    <ul>
+                    {% for ingredient in recipe.ingredients_as_list %}
+                        <li>{{ ingredient }}</li>
+                    {% endfor %}
+				</ul>
+            </div>
+        </div>
+{% endblock %}
+
+{% block buttons %}
+    <section class="button">
+		<a href="{% url 'my-cooking-book' %}">Back</a>
+		{% if user.is_authenticated %}
+		<form class="list" method="POST" action="" id="recipe_id">
+			{% csrf_token %}
+            <button class="submit" form="recipe_id" type="submit">Delete From Cooking Book</button>
+		</form>
+		{% endif %}
+	</section>
+{% endblock %}

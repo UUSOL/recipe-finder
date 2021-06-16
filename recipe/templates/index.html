@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+	{% load static %}
+	<link href="{% static './css/index.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+	<section class="title">
+		<h2 class="welcome">Welcome to the Recipe-Constructor WebApp</h2>
+		<p>Here You can find recipes based on Your preferences!</p>
+		<h2>How to use it?...</h2>
+	</section>
+{% endblock %}
+
+
+{% block main %}
+	<section class="info">
+
+		<h3>Choose Your lifestyle style that you want to follow:</h3>
+			<ul>
+				{% for art_name in arts_names %}
+				<li>{{ art_name }}</li>
+				{% endfor %}
+			</ul>
+
+		<h3>Choose ingredients:</h3>
+		<ul>
+			<li>Include ingredients that You want to be present on recipe just by clicking on them.</li>
+			<li>Exclude ingredients that You don't want to be present on recipe just by clicking on them.</li>
+			<li>If don't mark anything all ingredients are accepted and nothing excluded.</li>
+		</ul>
+
+		<h3>Click the "Find" button and enjoy cooking recipes based on your choice!</h3>
+		<p>Start again by clicking on the "Reset" button</p>
+
+		<p>Read instruction again if You forget something.</p>
+	</section>
+{% endblock %}
+
+{% block buttons %}
+	<section class="button">
+		<a href="{% url 'choose-lifestyle' %}">Start now and make fun!</a>
+	</section>
+{% endblock %}

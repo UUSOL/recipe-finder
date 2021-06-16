@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+    {% load static %}
+    <link href="{% static './css/choose-lifestyle.css' %}" rel="stylesheet">
+{%endblock%}
+
+{% block title %}
+    <section class="title">
+	    <h2 class="welcome">Recipe-Constructor WebApp</h2>
+		<p>Choose Your lifestyle style that you want to follow.</p>
+		<h2>Click on picture to continue.</h2>
+    </section>
+{% endblock %}
+
+{% block main %}
+    <section class="choice">
+	    <h3 class="choice-title">Nutrition styles:</h3>
+        <div class="choose-lifestyle-list">
+            {% for art in arts %}
+            <a class="choose-lifestyle" href="../{{art.name}}-lifestyle">
+                <img src="{{ art.image.url }}" />
+                <span>{{ art.name }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block buttons %}
+{% endblock %}

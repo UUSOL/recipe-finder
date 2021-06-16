@@ -1,0 +1,59 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+  {% load static %}
+  <link href="{% static './css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    <section class="title">
+	    <h2 class="welcome">Recipe-Constructor WebApp</h2>
+		<p>Please Enter your Credentials to log in</p>
+		<h2>Fill in the form below.</h2>
+    </section>
+{% endblock %}
+
+{% block main %}
+
+  {% if form.errors %}
+    <p class="error">Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p class="error">Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" id="login" action="{% url 'login' %}" novalidate>
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td class="input">{{ form.username }}</td>
+      </tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td class="input">{{ form.password }}</td>
+      </tr>
+    </table>
+    <input type="submit" value="Login" class="button"/>
+    <a href="{% url 'signup' %}" class="signup" >Sign Up</a>
+    <input type="hidden" name="next" value="{{ next }}" />
+  </form>
+
+  <section class="social">
+    <a href="{% url 'social:begin' 'facebook' %}">
+      <img src="{% static './img/logos/facebook.png' %}" />
+    </a>
+    <a href="{% url 'social:begin' 'github' %}">
+      <img src="{% static './img/logos/github.png' %}" />
+    </a>
+  </section>
+
+  <p class="link-forget-passwort"><a href="{% url 'password_reset' %}">Forgot Your Password?</a></p>
+
+{% endblock %}

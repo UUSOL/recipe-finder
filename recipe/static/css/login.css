@@ -1,0 +1,85 @@
+.login {
+	display:none;
+}
+
+.input input {
+	margin-left: 5px;
+	position: relative;
+	width: 250px;
+	z-index: 1;
+	font-size: 24px;
+	font-family: 'Cormorant Garamond', serif;
+}
+
+.button {
+	position: relative;
+	z-index: 1;
+	transition-duration: 0.4s;
+	padding: 14px 86px;
+	margin: 10px 0 0 0;
+	background-color: rgb(255, 165, 0);
+	font-size: 30px;
+	border-radius: 10px;
+	font-family: 'Cormorant Garamond', serif;
+}
+
+input.button:hover, .social img:hover {
+	transition-duration: 0.4s;
+	box-shadow: 5px 5px 5px 5px lightgrey;
+	cursor: pointer;
+	color: darkgreen;
+}
+
+a.signup {
+	margin-left: 45px;
+	color: grey;
+	transition-duration: 0.4s;
+}
+
+.link-forget-passwort a {
+	position: relative;
+	z-index: 1;
+	color: grey;
+	transition-duration: 0.4s;
+}
+.link-forget-passwort a:hover, a.signup:hover {
+	color: darkgreen;
+	transition-duration: 0.4s;
+}
+.social {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	position: relative;
+	z-index: 1;
+	float: right;
+	margin-top: 5px;
+}
+.social img {
+	height: 70px;
+	width: 70px;
+	padding: 10px;
+	opacity: 0.9;
+}
+
+.error {
+	color: darkred;
+}
+
+@media only screen and (max-width: 1100px) {
+	.main {
+		padding: 0 20px;
+	}
+}
+
+@media only screen and (max-width: 920px) {
+	.wave {
+		margin-top: 185px;
+	}
+}
+		
+@media only screen and (max-width: 500px) {
+	.wave {
+		margin-top: 245px;
+	}
+}

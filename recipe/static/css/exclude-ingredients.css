@@ -1,0 +1,131 @@
+h3.choice-title  {
+	margin: 20px 70px 0 70px;
+	border-bottom: 2px dotted grey;
+}
+
+.exclude {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 200px;
+	width: 200px;
+	margin: 20px; 
+	border: 2px solid grey;
+	border-radius: 10%;
+	font-family: Verdana;
+	font-size: 20px;  
+	transition-duration: 0.5s;
+	text-decoration: none;
+	color: black;
+}
+
+.exclude span {
+	margin-top: 5px;
+	font-size: 35px;
+	font-family: 'Dancing Script', cursive;
+	border-top: 1px solid grey;
+}
+
+.exclude img {
+	width: 100%;
+	height: 80%;
+	border-radius: 10% 10% 0 0;
+}
+
+.exclude input {
+	visibility: hidden;
+	margin: 0;
+	padding: 0; 
+}
+
+.exclude:hover {
+	background-color: red;
+	color: white;
+	cursor: pointer;
+	border-color: red;
+	transition-duration: 0.5s;
+	box-shadow: 10px 10px 10px 10px lightgrey;
+}
+
+.list {
+	display: flex;		
+	justify-content: center;	
+	flex-wrap: wrap;
+	background-color: white;
+	margin: 50px 0 50px 0;
+	position: relative;
+	z-index: 1; 
+	background-color: rgba(240,240,240, 0.1);
+}
+
+.button {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+.button a {
+	display: flex;
+	align-items: center;
+	justify-content: center;	
+	min-width: 200px;
+	min-height: 150px; 
+	text-decoration: none;
+	color: black;
+	background-color: rgb(255, 165, 0);
+	font-size: 40px;
+	transition-duration: 0.7s;
+	border-radius: 10px;
+}
+
+button.submit {
+	margin: 10px; 
+	width: 200px;
+	height: 150px;
+	font-size: 40px;
+	background-color: rgb(255, 165, 0);
+	color: black;
+	font-family: 'Cormorant Garamond', serif;
+	border-radius: 10px;
+	border: 0;
+	transition-duration: 0.7s;
+	text-decoration: none;
+	text-align: center;
+}
+
+.button a:hover, button.submit:hover {
+	transition-duration: 0.7s;
+	box-shadow: 7px 7px 7px 7px lightgrey;
+	color: darkgreen;
+	cursor: pointer;	
+}
+
+.focused {
+	background-color: red;
+	color: white;
+}
+
+@media only screen and (max-width: 1220px) {
+	.main {
+		padding: 0 20px;
+	}	
+}
+
+@media only screen and (max-width: 920px) {
+	.wave {
+		margin-top: 185px;
+	}
+	.button {
+		font-size: 27px;
+	}
+}
+		
+@media only screen and (max-width: 500px) {
+	.wave {
+		margin-top: 245px;
+	}	
+}

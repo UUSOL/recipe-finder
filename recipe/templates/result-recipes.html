@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+
+{% block links %}
+    {% load static %}
+	<link href="{% static './css/result-recipes.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+<section class="title">
+    <h2 class="welcome">Recipe-Constructor WebApp</h2>
+	<p>Click on a picture to read instruction and ingredients for the recipe</p>
+	<h2>Click on a picture </h2>
+</section>
+{% endblock %}
+
+{% block main %}
+    {% load static %}
+    <section class="choice">
+    	<h3 class="choice-title">Your Recipes:</h3>
+        <div class="list">
+            {% for recipe in recipes %}
+            <a href="{{ recipe.id }}" class="recipe">
+                <img src="{{ recipe.image.url }}" />
+                <span>{{ recipe.name }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block buttons %}
+<section class="button">
+    <a href="/recipe/{{art}}-lifestyle">Back</a>
+	<a href="{% url 'choose-lifestyle' %}">Start again</a>
+</section>
+{% endblock %}

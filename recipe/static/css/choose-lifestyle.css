@@ -1,0 +1,56 @@
+.main {
+	padding: 0 20px;
+}
+
+h3.choice-title  {
+	margin: 20px 70px 0 70px;
+	border-bottom: 2px dotted grey;
+}
+
+.choose-lifestyle-list {
+	display: flex;		
+	justify-content: center;	
+	flex-wrap: wrap;
+	background-color: white;
+	margin: 50px 0 100px 0;
+	position: relative;
+	z-index: 1; 
+	background-color: rgba(240,240,240, 0.1);
+}
+
+.choose-lifestyle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 315px;
+	width: 315px;
+	margin: 20px; 
+	border: 2px solid black;
+	border-radius: 10%;
+	font-size: 20px;  
+	transition-duration: 0.7s;
+	text-decoration: none;
+	color: black;
+}
+
+.choose-lifestyle:hover {
+	background-color: green;
+	color: white;
+	cursor: pointer;
+	transition-duration: 0.7s;
+	box-shadow: 15px 15px 15px 15px lightgrey;
+}
+
+.choose-lifestyle img {
+	width: 100%;
+	height: 80%;
+	border-radius: 10% 10% 0 0;
+}
+
+.choose-lifestyle span {
+	margin-bottom: 8px;
+	font-size: 40px;
+	font-family: 'Dancing Script', cursive;
+	border-top: 1px solid white;
+}

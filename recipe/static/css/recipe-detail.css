@@ -1,0 +1,131 @@
+.main {
+	padding: 0 35px; 
+}
+
+h3.choice-title  {
+	border-bottom: 2px dotted grey;
+}
+
+.button {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+}
+
+.button a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 10px 30px 10px; 
+	min-width: 200px;
+	min-height: 150px; 
+	text-decoration: none;
+	color: black;
+	background-color: rgb(255, 165, 0);
+	font-size: 40px;
+	transition-duration: 0.7s;
+	border-radius: 10px;
+}
+
+button.submit {
+	margin: 0 10px 30px 10px; 
+	width: 270px;
+	height: 150px;
+	font-size: 40px;
+	background-color: rgb(255, 165, 0);
+	color: black;
+	font-family: 'Cormorant Garamond', serif;
+	border-radius: 10px;
+	border: 0;
+	transition-duration: 0.7s;
+	text-decoration: none;
+	text-align: center;
+}
+
+.button a:hover, button.submit:hover {
+	transition-duration: 0.7s;
+	box-shadow: 7px 7px 7px 7px lightgrey;
+	color: darkgreen;
+	cursor: pointer;	
+}
+
+.recipe-header {
+	display: flex;
+	flex-direction: row;
+}
+
+.recipe-header h2 {
+	margin: 0; 
+}
+.recipe-header img {
+	width: 450px;
+	height: 350px;
+	border-radius: 10%;
+	box-shadow: 7px 7px 7px 7px lightgrey;
+}
+.recipe-header h2 {
+	color: darkgreen;
+}
+
+.recipe-info {
+	margin-left: 30px; 
+	width: 70%;
+}
+		
+.recipe-content {
+	display: flex;
+	flex-direction: row;
+}		
+
+.instructions, .ingredients {
+	width: 50%;
+}		
+
+li {
+	padding: 10px; 
+}
+
+@media only screen and (max-width: 920px) {
+	.recipe-content {
+		flex-direction: column;
+	}
+	.instructions, .ingredients {
+		width: 100%;
+	}	
+	.wave {
+		margin-top: 185px;
+	}
+	.button {
+		font-size: 27px;
+	}
+}
+		
+@media only screen and (max-width: 750px) {
+	.main {
+		padding: 0 7px;
+	}
+	.wave {
+		margin-top: 245px;
+	}
+	.recipe-header {
+		flex-direction: column;
+		align-items: center;
+	}
+	.recipe-info h2 {
+		text-align: center; 
+	}
+	.recipe-header img {
+		width: 420px;
+		height: 320px;
+	}
+	.recipe-info {
+		width: 100%;
+		margin-left: 0; 
+	}
+	.recipe-content h3 {
+		border-bottom: 2px dotted grey;
+	}
+}

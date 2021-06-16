@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cooking Recipe Finder</title>
+    <meta charset="utf-8">
+
+     <!-- Add Fonts to file -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+    {% load static %}
+    <link href="{% static './css/base-generic.css' %}" rel="stylesheet">
+    <!-- Add additional CSS and javaScript in static file -->
+
+    {% block links %}
+    {% endblock %}
+
+</head>
+<body>
+   	<header class="header">
+			<a href="/" class="label">Recipe Finder</a>
+
+            {% if user.is_authenticated %}
+             <span>Hi {{ user.get_username }}!</span>
+             <a href="{% url 'logout' %}?next={{request.path}}">Logout</a>
+            {% else %}
+             <a class="login" href="{% url 'login' %}?next={{request.path}}">Login</a>
+            {% endif %}
+			<a href="{% url 'my-cooking-book' %}">My cooking book</a>
+
+	</header>
+	<svg class="wave" viewBox="0 0 1440 320">
+		  <path fill="rgb(60, 179, 113)" fill-opacity="1" d="M0,160L48,165.3C96,171,192,181,288,181.3C384,181,480,171,576,154.7C672,139,768,117,864,122.7C960,128,1056,160,1152,192C1248,224,1344,256,1392,272L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+	</svg>
+
+     <main class="main">
+         {% block title %}
+         {% endblock %}
+
+         {% block main %}
+         {% endblock %}
+
+         {% block buttons %}
+         {% endblock %}
+    </main>
+
+     <footer class="footer">
+        <svg viewBox="0 0 1440 320">
+            <path fill="#00cba9" fill-opacity="1" d="M0,192L120,197.3C240,203,480,213,720,192C960,171,1200,117,1320,90.7L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"></path>
+        </svg>
+     </footer>
+
+</body>
+</html>
